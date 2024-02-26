@@ -1,6 +1,6 @@
 ## vitest workspaces cwd issue
 
-This repository demonstrates that vitest does not set the process working directory to the workspace directory when running tests in each workspace.
+This repository demonstrates that vitest does not set the process working directory to the workspace directory when running tests in each workspace. The tests in this package expect `path.basename(process.cwd())` to equal the package name, instead they fail as the basename equals the monorepo root directory name.
 
 Documentation for Vitest workspaces states that,
 
