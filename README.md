@@ -1,6 +1,19 @@
 ## vitest workspaces cwd issue
 
-This repository demonstrates that vitest does not set the process working directory to the workspace directory when running tests in each workspace. The tests in this package expect `path.basename(process.cwd())` to equal the package name, instead they fail as the basename equals the monorepo root directory name.
+This repository demonstrates that vitest does not set the process working directory to the workspace directory when running tests in each workspace.
+
+### Reproduction steps
+
+The tests in this package expect `path.basename(process.cwd())` to equal the package name, instead they fail as the basename equals the monorepo root directory name. However, if the same tests are executed from within the package then they pass.
+
+From the monorepo root directory (i.e. repository root):
+
+1. `npm run vitest`.
+2. **Tests fail** as working directory remains monorepo root.
+3. `npm run --workspaces --if-present test -- --run`.
+4. **Tests pass** as npm's workspaces executor changes the directory to package directory.
+
+### Thoughts
 
 Documentation for Vitest workspaces states that,
 

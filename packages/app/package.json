@@ -1,5 +1,8 @@
 {
   "name": "vitest-workspace-app",
   "version": "1.0.0",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest"
+  }
 }
