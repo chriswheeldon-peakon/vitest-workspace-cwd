@@ -27,3 +27,4 @@ From my own usage of vitest this has presented problems when a package relies on
 
 1. https://vitest.dev/guide/workspace
 2. https://www.npmjs.com/package/config
+3. https://github.com/vitest-dev/vitest/issues/5277
